@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from '../character';
-import { CHARACTERS } from '../mock-data'; 
+import { CharacterService } from '../character.service';
 
 @Component({
   selector: 'app-characters',
@@ -15,11 +15,17 @@ export class CharactersComponent implements OnInit {
     this.selectedHero = char;
   }
 
-  characters = CHARACTERS;
+  characters: Character[] = [];
 
-  constructor() { }
+  constructor(private characterService: CharacterService) { }
 
   ngOnInit(): void {
+    this.getCharacters();
+  }
+
+  async getCharacters(): Promise<Character[]> {
+    //this.characters = this.characterService.getChar();
+    return this.characters = this.characterService.gerRes();
   }
 
 }
