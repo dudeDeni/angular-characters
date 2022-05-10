@@ -1,6 +1,6 @@
 import { Character } from "./character";
 
-export const CHARACTERS: Character[] = [
+export const CHARACTERS = [
 	{ id: 11, name: 'Dr Nice' },
 	{ id: 12, name: 'Narco' },
 	{ id: 13, name: 'Bombasto' },

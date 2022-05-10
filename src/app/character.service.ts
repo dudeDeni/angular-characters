@@ -1,36 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Character } from './character';
-import { CHARACTERS } from './mock-data';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
-  totalAngularPackages: SearchResults[] = []
-  errorMessage: string = '';
-  
 
   constructor(private http: HttpClient) { }
 
-  getChar(): Character[] {
-    return CHARACTERS;
-  }
-  async gerRes(): Promise<SearchResults[]> {
-    await this.http.get<SearchResults[]>('https://rickandmortyapi.com/api/character/1,183').subscribe({
-      next: data => {
-          this.totalAngularPackages = data;
-      },
-      error: error => {
-          this.errorMessage = error.message;
-          console.error('There was an error!', error);
-      }
-  })
-    console.log(this.totalAngularPackages)
-    return this.totalAngularPackages
+  getData() {
+    return this.http.get<Config>('https://rickandmortyapi.com/api/character')
   }
 
-  
+  getCharById(id: number) {
+    return this.http.get<SearchResults>(`https://rickandmortyapi.com/api/character/${id}`)
+  }
 }
 interface SearchResults {
   id: number,
@@ -51,4 +35,9 @@ interface SearchResults {
   episode: [string],
   url: string,
   created: string
+}
+
+interface Config {
+  info: Object,
+  results: SearchResults[]
 }

@@ -1,9 +1,13 @@
+<button type="button" (click)="goBack()"> BACK </button>
 <div *ngIf="character">
+  <img [src]="character.image" />
 	<h2>{{character.name | uppercase}} Details</h2>
 	<div>id: {{character.id}}</div>
 	<div>
 	  <label for="character-name">Character name: </label>
 	  <input id="character-name" [(ngModel)]="character.name" placeholder="name">
 	</div>
+  <div>species: {{ character.species }}</div>
+  <div>status: {{ character.status }}</div>
 
 </div>
