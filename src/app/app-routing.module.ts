@@ -4,6 +4,7 @@ import { CharDetailComponent } from './characters/components/char-detail/char-de
 import { CharListComponent } from './characters/components/char-list/char-list.component';
 import { HomeComponent } from './characters/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { WeatherCurrentComponent } from './forecast/components/weather-current/weather-current.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: 'detail/:id', component: CharDetailComponent },
     ]
   },
+  { path: 'forecast', component: WeatherCurrentComponent}
 ];
 
 @NgModule({

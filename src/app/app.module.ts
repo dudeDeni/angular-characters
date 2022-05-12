@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CharactersModule } from './characters/characters.module';
+import { ForecastModule } from './forecast/forecast.module';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,10 @@ import { CharactersModule } from './characters/characters.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
-    CharactersModule
+    CharactersModule,
+    ForecastModule,
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
