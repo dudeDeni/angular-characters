@@ -1,5 +1,5 @@
 <button type="button" (click)="goBack()"> BACK </button>
-<div *ngIf="character">
+<div *ngIf="characterServise.charDetailSubject | async as character">
   <img [src]="character.image" />
 	<h2>{{character.name | uppercase}} Details</h2>
 	<div>id: {{character.id}}</div>

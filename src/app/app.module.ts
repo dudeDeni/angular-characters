@@ -5,16 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CharactersComponent } from './characters/characters.component';
-import { CharacterDetailComponent } from './character-detail/character-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MobxAngularModule } from 'mobx-angular';
+import { CharactersModule } from './characters/characters.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CharactersComponent,
-    CharacterDetailComponent,
     DashboardComponent
   ],
   imports: [
@@ -22,6 +18,7 @@ import { MobxAngularModule } from 'mobx-angular';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    CharactersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

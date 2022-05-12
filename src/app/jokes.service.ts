@@ -9,23 +9,26 @@ import { Joke } from './joke';
 export class JokesService {
   apiUrl = 'https://api.chucknorris.io/jokes/random'
 
-  private _jokeResponse = new BehaviorSubject<Joke>({
-    icon_url: "",
-    id: "",
-    url: "",
-    value: ""
-  });
 
-  readonly jokeResponse = this._jokeResponse.asObservable();
+  public jokeResponse = new BehaviorSubject<Joke>(null);
+  public jokeCategory = new BehaviorSubject<string[]>([]);
 
   constructor(private http: HttpClient) { }
 
-  public getRandomJoke(): Observable<Joke> {
-    return this.http.get<any>(this.apiUrl).pipe(
+  public getRandomJoke() {
+    return this.http.get<Joke>(this.apiUrl).pipe(
       tap(response => {
-        this._jokeResponse.next(response)
+        this.jokeResponse.next(response)
       })
-    )
+    ).subscribe()
   }
-  
+
+  public getJokeCategory() {
+    return this.http.get<any>("https://api.chucknorris.io/jokes/random?category={music}").pipe(
+      tap(res => {
+        this.jokeCategory.next(res)
+      })
+    ).subscribe()
+  }
+
 }

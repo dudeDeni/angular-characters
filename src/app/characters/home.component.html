@@ -1,0 +1,12 @@
+<h2>Top Heroes</h2>
+<div class="heroes-menu">
+
+  <a *ngFor="let character of characterServise.topCharSubject | async"
+    routerLink="/detail/{{character.id}}"
+  >
+    <img style="width: 150px; border-radius: 5px;" [src]="character.image" />
+    {{character.name}}
+  </a>
+</div>
+<router-outlet></router-outlet>
+<a routerLink="/characters/list">List</a>

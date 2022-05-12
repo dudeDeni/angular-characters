@@ -1,8 +1,8 @@
-<h2>Top Heroes</h2>
-<div class="heroes-menu">
-  <a *ngFor="let character of characters"
-    routerLink="/detail/{{character.id}}"
-  >
-    {{character.name}}
-  </a>
+
+<div class="wrapper">
+  <label>Joke of the day:</label>
+  <p *ngIf="jokesService.jokeResponse | async as resolved"> {{resolved.value}}
+    <img [src]="resolved.icon_url" />
+  </p>
+
 </div>
